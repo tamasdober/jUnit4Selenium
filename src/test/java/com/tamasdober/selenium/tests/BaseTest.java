@@ -25,7 +25,12 @@ public class BaseTest {
     /*ChromeOptions chromeOptions = new ChromeOptions();
     chromeOptions.addArguments("--disable-notifications");
     ChromeDriver webDriver = new ChromeDriver(chromeOptions);*/
+
     webDriver = new ChromeDriver();
+
+//    ChromeOptions options = new ChromeOptions();
+//    options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+//    WebDriver webDriver = new ChromeDriver(options);
     webDriver.get(APP_URL);
     basePage = new BasePage();
     basePage.setWebDriver(webDriver);
