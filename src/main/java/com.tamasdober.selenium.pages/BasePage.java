@@ -37,9 +37,13 @@ public class BasePage {
     return new MumbaiLokhandwala48FitnessPage();
   }
 
-  public WebElement getFirstDropDown(){
-    return webDriver.findElement(firstDropDOwn);
+  public void getFirstDropDownAndClick() {
+    final WebElement webElement = webDriver.findElement(firstDropDOwn);
+    clickOnWebElement(webElement);
+  }
 
+  private void clickOnWebElement(WebElement webElement) {
+    webElement.click();
   }
 
   public void scrollDownToTheBottomOfThePage() {

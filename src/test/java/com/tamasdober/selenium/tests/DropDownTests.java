@@ -5,7 +5,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 
 import com.tamasdober.selenium.pages.MumbaiLokhandwala48FitnessPage;
-import java.util.List;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -15,7 +14,7 @@ import org.openqa.selenium.WebElement;
 public class DropDownTests extends BaseTest {
 
   @Test
-  public void testTitle() {
+  public void testTitleBasePage() {
     webDriver.manage().window().setSize(new Dimension(375, 812));
     assertEquals(
         "Find Gyms, Yoga, Pilates, Zumba and Fitness Classes Mumbai | Fitternity",
@@ -26,29 +25,15 @@ public class DropDownTests extends BaseTest {
   }
 
   @Test
-  public void findListOfWebElements() {
-    final List<WebElement> elements = webDriver.findElements(
-        By.cssSelector("body > div.home > div.fitternity-live.section-seperator > div > div"));
-    System.out.println(elements.size());
-    for (WebElement element : elements) {
-      System.out.println(element.getText());
-    }
-    System.out.println(elements.size());
-  }
-
-  @Test
   public void scrollDownFindByLinkText() {
     basePage.scrollDownToTheBottomOfThePage();
     MumbaiLokhandwala48FitnessPage mumbaiLokhandwala48FitnessPage = basePage.clickOn48FitnessLink();
-    final String text = mumbaiLokhandwala48FitnessPage.findTextForFirstComment().getText();
-    assertEquals("Swapnil Lal", text);
+    assertEquals("Swapnil Lal", mumbaiLokhandwala48FitnessPage.getFirstReviewText());
   }
 
   @Test
   public void firstDropDrown() {
-    // basePage.scrollDownToTheBottomOfThePage();
-    WebElement firstDropDown = basePage.getFirstDropDown();
-    firstDropDown.click();
+    basePage.getFirstDropDownAndClick();
     System.out.println("found");
 
   }
